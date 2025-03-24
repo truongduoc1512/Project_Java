@@ -22,4 +22,10 @@ public class IndexController {
     public String loadPage(@PathVariable String page, Model model) {
         return "pages/" + page ; // Sửa lỗi ở đây
     }
+
+    @GetMapping("/pages/index_DatLich")
+    public String homePage() {
+        System.out.println("Serving home page");
+        return "pages/index_DatLich"; // Tìm file home.html trong thư mục templates/pages
+    }
 }
