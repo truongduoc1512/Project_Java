@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/head :: head"></head>
+
+    <body>
+
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Topbar Start -->
+        <div th:replace="master/_layoutTopbar :: layout-topbar"></div>
+        <!-- Topbar End -->
+
+
+        <!-- Navbar & Hero Start -->
+        <div th:replace="master/_layoutNavbar :: layout-navbar"></div>
+        <!-- Navbar & Hero End -->
+
+        <!-- Content Start -->
+         <div id="pageContents">
+            
+         </div>
+        <!-- <div th:replace="master/_layoutCarousel :: layout-carousel"></div> -->
+        <!-- Content End -->
+
+        <!-- Services Start -->
+        <div class="container-fluid service py-5">
+            <div class="container py-5">
+                <div class="section-title mb-5 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="sub-style">
+                        <h4 class="sub-title px-3 mb-0">Vaccine An Toàn - Bảo Vệ Tương Lai</h4>
+                    </div>
+                    <h1 class="display-3 mb-4">Các Dịch Vụ Tiêm Chủng Hàng Đầu Cho Trẻ Em</h1>
+                    <p class="mb-0">Chúng tôi cung cấp các dịch vụ tiêm chủng an toàn và hiệu quả, giúp bảo vệ trẻ em khỏi các bệnh truyền nhiễm nguy hiểm. Với đội ngũ y bác sĩ giàu kinh nghiệm và cơ sở vật chất hiện đại, bạn có thể yên tâm khi chọn dịch vụ của chúng tôi!</p>
+                </div>
+                <div class="row g-4 justify-content-center equal-height">
+                    <!-- services 1 -->
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="service-item rounded">
+                           <div class="service-img rounded-top">
+                                <img src="../assets/img/service-1.jpg" class="img-fluid rounded-top w-100 mh-300" alt="">
+                           </div>
+                            <div class="service-content rounded-bottom bg-light p-4">
+                                <div class="service-content-inner">
+                                    <h5 class="mb-4">Tiêm Chủng Sơ Sinh</h5>
+                                    <p class="mb-4 h-170" style="white-space: pre-line;">
+                                        Các mũi tiêm quan trọng ngay sau khi sinh như viêm gan B, lao (BCG).
+
+                                        Đảm bảo miễn dịch sớm, giúp trẻ khỏe mạnh từ những ngày đầu đời.
+                                    </p>
+                                    <a href="#" class="btn btn-primary rounded-pill text-white py-2 px-4 mb-2">Đọc thêm</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- services 2 -->
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="service-item rounded">
+                           <div class="service-img rounded-top">
+                                <img src="../assets/img/service-2.jpg" class="img-fluid rounded-top w-100 mh-300" alt="">
+                           </div>
+                            <div class="service-content rounded-bottom bg-light p-4">
+                                <div class="service-content-inner">
+                                    <h5 class="mb-4">Tiêm Chủng Theo Lịch Chuẩn</h5>
+                                    <p class="mb-4 h-170" style="white-space: pre-line;">
+                                        Lịch tiêm chủng đầy đủ theo khuyến cáo của Bộ Y tế và WHO.
+
+                                        Gồm các mũi: bạch hầu, ho gà, uốn ván, bại liệt, sởi, quai bị, rubella...
+                                    </p>
+                                    <a href="#" class="btn btn-primary rounded-pill text-white py-2 px-4 mb-2">Đọc thêm</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- services 3 -->
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="service-item rounded">
+                           <div class="service-img rounded-top">
+                                <img src="../assets/img/service-3.jpg" class="img-fluid rounded-top w-100 mh-300" alt="">
+                           </div>
+                            <div class="service-content rounded-bottom bg-light p-4">
+                                <div class="service-content-inner">
+                                    <h5 class="mb-4">Gói Vaccine Dịch Vụ</h5>
+                                    <p class="mb-4 h-170" style="white-space: pre-line;">
+                                        Các loại vaccine cao cấp, nhập khẩu từ các hãng uy tín.
+
+                                        Giảm tác dụng phụ, tăng hiệu quả phòng bệnh.
+                                    </p>
+                                    <!-- <p class="mb-4">Giảm tác dụng phụ, tăng hiệu quả phòng bệnh.</p> -->
+                                    <a href="#" class="btn btn-primary rounded-pill text-white py-2 px-4 mb-2">Đọc thêm</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- services 4 -->
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="service-item rounded">
+                            <div class="service-img rounded-top">
+                                <img src="../assets/img/service-4.jpg" class="img-fluid rounded-top w-100 mh-300" alt="">
+                            </div>
+                            <div class="service-content rounded-bottom bg-light p-4">
+                                <div class="service-content-inner">
+                                    <h5 class="mb-4">Tiêm Chủng Mùa Dịch</h5>
+                                    <p class="mb-4 h-170" style="white-space: pre-line;">
+                                        Vaccine phòng các bệnh theo mùa như cúm, viêm phổi, tiêu chảy do Rotavirus.
+                    
+                                        Bảo vệ trẻ khỏi nguy cơ mắc bệnh trong thời điểm dịch bệnh bùng phát.
+                                    </p>
+                                    <a href="#" class="btn btn-primary rounded-pill text-white py-2 px-4 mb-2">Đọc thêm</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- services 5 -->
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="service-item rounded">
+                            <div class="service-img rounded-top">
+                                <img src="../assets/img/service-5.jpg" class="img-fluid rounded-top w-100 mh-300" alt="">
+                            </div>
+                            <div class="service-content rounded-bottom bg-light p-4">
+                                <div class="service-content-inner">
+                                    <h5 class="mb-4">Tiêm Chủng Bổ Sung</h5>
+                                    <p class="mb-4 h-170" style="white-space: pre-line;">
+                                        Các vaccine chưa có trong chương trình tiêm chủng mở rộng nhưng quan trọng như viêm màng não, thủy đậu.
+                    
+                                        Đảm bảo bảo vệ toàn diện cho trẻ.
+                                    </p>
+                                    <a href="#" class="btn btn-primary rounded-pill text-white py-2 px-4 mb-2">Đọc thêm</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- services 6 -->
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="service-item rounded">
+                            <div class="service-img rounded-top">
+                                <img src="../assets/img/service-6.jpg" class="img-fluid rounded-top w-100 mh-300" alt="">
+                            </div>
+                            <div class="service-content rounded-bottom bg-light p-4">
+                                <div class="service-content-inner">
+                                    <h5 class="mb-4">Khám & Tư Vấn Tiêm Chủng</h5>
+                                    <p class="mb-4 h-170" style="white-space: pre-line;">
+                                        Kiểm tra sức khỏe trước khi tiêm để đảm bảo an toàn.
+                    
+                                        Đánh giá tình trạng dị ứng, phản ứng phụ tiềm ẩn.
+                                    </p>
+                                    <a href="#" class="btn btn-primary rounded-pill text-white py-2 px-4 mb-2">Đọc thêm</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- services 7 -->
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="service-item rounded">
+                            <div class="service-img rounded-top">
+                                <img src="../assets/img/service-7.jpg" class="img-fluid rounded-top w-100 mh-300" alt="">
+                            </div>
+                            <div class="service-content rounded-bottom bg-light p-4">
+                                <div class="service-content-inner">
+                                    <h5 class="mb-4">Đặt Lịch Tiêm Chủng Online</h5>
+                                    <p class="mb-4 h-170" style="white-space: pre-line;">
+                                        Đăng ký tiêm chủng trực tuyến nhanh chóng, tiện lợi.
+                    
+                                        Nhắc lịch tiêm tự động qua tin nhắn hoặc email.
+                                    </p>
+                                    <a href="#" class="btn btn-primary rounded-pill text-white py-2 px-4 mb-2">Đọc thêm</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- services 8 -->
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="service-item rounded">
+                            <div class="service-img rounded-top">
+                                <img src="../assets/img/service-8.jpg" class="img-fluid rounded-top w-100 mh-300" alt="">
+                            </div>
+                            <div class="service-content rounded-bottom bg-light p-4">
+                                <div class="service-content-inner">
+                                    <h5 class="mb-4">Theo Dõi & Chăm Sóc Sau Tiêm</h5>
+                                    <p class="mb-4 h-170" style="white-space: pre-line;">
+                                        Hướng dẫn theo dõi phản ứng sau tiêm tại nhà.
+                    
+                                        Đội ngũ y bác sĩ sẵn sàng hỗ trợ khi cần.
+                                    </p>
+                                    <a href="#" class="btn btn-primary rounded-pill text-white py-2 px-4 mb-2">Đọc thêm</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.2s">
+                        <a class="btn btn-primary rounded-pill text-white py-3 px-5" href="#">Services More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Services End -->
+
+
+        <!-- About Start -->
+  
+        <!-- Coppy right End-->
+        <footer style="background-color: #007bff; color: white; padding: 40px 20px; text-align: center; font-family: Arial, sans-serif;">
+            <div style="margin-bottom: 20px;">
+                <h3 style="margin: 0; font-size: 24px;">Tiêm Chủng Vaccine Cho Trẻ Em</h3>
+                <p style="margin: 5px 0; font-size: 16px;">Bảo vệ sức khỏe cho thế hệ tương lai</p>
+            </div>
+            <div style="margin: 20px 0;">
+                <a href="#home" style="margin: 0 15px; color: white; text-decoration: none; font-weight: bold;">Trang Chủ</a>
+                <a href="#about" style="margin: 0 15px; color: white; text-decoration: none; font-weight: bold;">Giới Thiệu</a>
+                <a href="#services" style="margin: 0 15px; color: white; text-decoration: none; font-weight: bold;">Dịch Vụ</a>
+                <a href="#contact" style="margin: 0 15px; color: white; text-decoration: none; font-weight: bold;">Liên Hệ</a>
+            </div>
+            <div style="margin: 20px 0;">
+                <a href="#" style="margin: 0 10px; color: white; text-decoration: none;">
+                    <img src="facebook-icon.png" alt="Facebook" style="width: 24px; height: 24px;">
+                </a>
+                <a href="#" style="margin: 0 10px; color: white; text-decoration: none;">
+                    <img src="twitter-icon.png" alt="Twitter" style="width: 24px; height: 24px;">
+                </a>
+                <a href="#" style="margin: 0 10px; color: white; text-decoration: none;">
+                    <img src="instagram-icon.png" alt="Instagram" style="width: 24px; height: 24px;">
+                </a>
+            </div>
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.5); padding-top: 20px;">
+                <p style="margin: 5px 0; font-size: 14px;">© 2023 Tiêm Chủng Vaccine Cho Trẻ Em. Tất cả quyền được bảo lưu.</p>
+                <p style="margin: 5px 0; font-size: 14px;">Chính sách bảo mật | Điều khoản sử dụng</p>
+            </div>
+        </footer>
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>   
+
+        
+        <!-- JavaScript Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../lib/wow/wow.min.js"></script>
+        <script src="../lib/easing/easing.min.js"></script>
+        <script src="../lib/waypoints/waypoints.min.js"></script>
+        <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+        
+
+        <!-- Template Javascript -->
+        <script src="../assets/js/main.js"></script>
+    </body>
+
+</html>
