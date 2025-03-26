@@ -71,7 +71,7 @@
 }
 
 .btn.btn-primary:hover {
-    box-shadow: inset 300px 0 0 0 var(--bs-light) !important;
+    box-shadow: inset 100vw 0 0 0 var(--bs-light) !important;
     color: var(--bs-primary) !important;
 }
 
