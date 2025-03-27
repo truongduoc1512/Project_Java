@@ -28,4 +28,20 @@ public class IndexController {
         System.out.println("Serving home page");
         return "pages/index_DatLich"; // Tìm file home.html trong thư mục templates/pages
     }
+
+    @GetMapping("/pages/indexSP")
+    public String SupportPage() {
+        System.out.println("Serving home page");
+        return "pages/indexSP"; // Tìm file home.html trong thư mục templates/pages
+    }
+
+    @GetMapping("/pages/create_support")
+    public String creatSupport(){
+        return "pages/create_support";
+    }
+
+    @GetMapping("/pages/check_status")
+    public String checkStatus(){
+        return "pages/check_status";
+    }
 }

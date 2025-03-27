@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //   "<h1>Cập nhật quá trình tiêm chủng</h1><p>Quản lý tiến trình tiêm chủng.</p>",
     // "Thông báo":
     //   "<h1>Thông báo</h1><p>Các thông báo mới nhất về tiêm vaccine.</p>",
-    // Support: "<h1>Hỗ trợ</h1><p>Trợ giúp và hướng dẫn sử dụng hệ thống.</p>",
+    Support: "/pages/indexSP",
     // "Lịch sử giao dịch":
     //   "<h1>Lịch sử giao dịch</h1><p>Danh sách các giao dịch đã thực hiện.</p>",
     // "Phản hồi":
