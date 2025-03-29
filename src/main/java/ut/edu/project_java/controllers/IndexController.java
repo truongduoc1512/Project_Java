@@ -24,7 +24,7 @@ public class IndexController {
     }
 
     @GetMapping("/pages/index_DatLich")
-    public String homePage() {
+    public String DatlichPage() {
         System.out.println("Serving home page");
         return "pages/index_DatLich"; // Tìm file home.html trong thư mục templates/pages
     }
@@ -33,6 +33,18 @@ public class IndexController {
     public String SupportPage() {
         System.out.println("Serving home page");
         return "pages/indexSP"; // Tìm file home.html trong thư mục templates/pages
+    }
+
+    @GetMapping("/pages/index_ChamSocKhachHang")
+    public String ChamSocPage() {
+        System.out.println("Serving home page");
+        return "pages/index_ChamSocKhachHang"; // Tìm file home.html trong thư mục templates/pages
+    }
+
+    @GetMapping("/pages/index_HistoryPay")
+    public String HistoryPage() {
+        System.out.println("Serving home page");
+        return "pages/index_HistoryPay"; // Tìm file home.html trong thư mục templates/pages
     }
 
     @GetMapping("/pages/create_support")
