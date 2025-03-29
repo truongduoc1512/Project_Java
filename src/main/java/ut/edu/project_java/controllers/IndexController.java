@@ -44,4 +44,9 @@ public class IndexController {
     public String checkStatus(){
         return "pages/check_status";
     }
+
+    @GetMapping("/pages/home")
+    public String home(){
+        return "pages/home";
+    }
 }

@@ -127,4 +127,51 @@
 
 })(jQuery);
 
-
+function loadPage(page) {
+    console.log("Loading page:", page);
+  
+    // Kiểm tra nếu page đã có '/pages/', chỉ fetch(page) thôi
+    let url = page.startsWith("/pages/") ? page : "/pages/" + page;
+  
+    fetch(url)
+      .then((response) => response.text())
+      .then((html) => (document.getElementById("content").innerHTML = html))
+      .catch((error) => console.error("Fetch error:", error));
+  }
+  
+  document.addEventListener("DOMContentLoaded", function () {
+    const navItems = document.querySelectorAll(".nav-item");
+    const content = document.getElementById("content");
+  
+    const pages = {
+      "Trang chủ": "/pages/home",
+      // "Dịch vụ tiêm chủng":
+      //   "<h1>Dịch vụ tiêm chủng</h1><p>Thông tin về dịch vụ tiêm vaccine.</p>",
+      // "Bảng giá": "<h1>Giá</h1><p>Thông tin về giá tiêm vaccine.</p>",
+      // "Cẩm nang tiêm chủng":
+      //   "<h1>Cẩm nang tiêm chủng</h1><p>Hướng dẫn tiêm vaccine.</p>",
+      // "Gói vaccine": "<h1>Gói vaccine</h1><p>Thông tin về các gói vaccine.</p>",
+      // "Tin tức": "<h1>Tin tức</h1><p>Các tin tức mới nhất về tiêm vaccine.</p>",
+    //   "Đặt lịch": "/pages/index_DatLich",
+    };
+  
+    // Xử lý click trên navbar (nếu có)
+    navItems.forEach((item) => {
+      item.addEventListener("click", function () {
+        // Xóa trạng thái active của tất cả nav-items
+        navItems.forEach((i) => i.classList.remove("active"));
+  
+        // Thêm active vào nav-item được chọn
+        item.classList.add("active");
+  
+        // Hiển thị nội dung tương ứng
+        const text = item.innerText.trim();
+        if (pages[text]) {
+            console.log("Calling loadPage with:", pages[text]);
+            loadPage(pages[text]);
+          } else {
+            console.log("No page found for:", text);
+          }
+      });
+    });
+  });
