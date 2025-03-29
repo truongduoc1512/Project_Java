@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //   "<h1>Cẩm nang tiêm chủng</h1><p>Hướng dẫn tiêm vaccine.</p>",
     // "Gói vaccine": "<h1>Gói vaccine</h1><p>Thông tin về các gói vaccine.</p>",
     // "Tin tức": "<h1>Tin tức</h1><p>Các tin tức mới nhất về tiêm vaccine.</p>",
+    Support: "/pages/indexSP",
     "Đặt lịch": "/pages/index_DatLich",
     "Chăm sóc khách hàng": "/pages/index_ChamSocKhachHang",
     // "Cập nhật hồ sơ trẻ em":
@@ -34,14 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //   "<h1>Cập nhật quá trình tiêm chủng</h1><p>Quản lý tiến trình tiêm chủng.</p>",
     // "Thông báo":
     //   "<h1>Thông báo</h1><p>Các thông báo mới nhất về tiêm vaccine.</p>",
-<<<<<<< HEAD
-    "Support": "/pages/indexSP",
-    // "Lịch sử giao dịch":
-    //   "<h1>Lịch sử giao dịch</h1><p>Danh sách các giao dịch đã thực hiện.</p>",
-=======
-    Support: "/pages/indexSP",
-    "Lịch sử giao dịch": "/pages/index_HistoryPay",
->>>>>>> 13fddd5 (add ChamSocKhachHang + lich su giao dich + sua lai giao dien dat lich)
+    //"Lịch sử giao dịch": "/pages/index_HistoryPay",
     // "Phản hồi":
     //   "<h1>Phản hồi</h1><p>Đóng góp ý kiến và phản hồi về hệ thống.</p>",
   };
