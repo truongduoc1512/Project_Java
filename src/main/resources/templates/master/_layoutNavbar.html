@@ -25,7 +25,7 @@
     <!-- Carousel Start -->
     
     <!-- Carousel End -->
-     <!-- Modal Đăng nhập & Đăng ký -->
+<!-- Modal Đăng nhập & Đăng ký -->
 <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -48,7 +48,7 @@
                 <div class="tab-content mt-3" id="authTabsContent">
                     <!-- Form Đăng nhập -->
                     <div class="tab-pane fade show active" id="login" role="tabpanel">
-                        <form>
+                        <form id="loginForm">
                             <div class="mb-3">
                                 <label for="login-email" class="form-label">Email</label>
                                 <input type="email" class="form-control" id="login-email" required>
@@ -63,7 +63,7 @@
 
                     <!-- Form Đăng ký -->
                     <div class="tab-pane fade" id="register" role="tabpanel">
-                        <form>
+                        <form id="registerForm">
                             <div class="mb-3">
                                 <label for="register-name" class="form-label">Họ và tên phụ huynh</label>
                                 <input type="text" class="form-control" id="register-name" required>
@@ -92,48 +92,94 @@
         </div>
     </div>
 </div>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-    const loginForm = document.getElementById("loginForm");
-    const registerForm = document.getElementById("registerForm");
-    const switchToRegister = document.getElementById("switchToRegister");
-    const switchToLogin = document.getElementById("switchToLogin");
-    const modalTitle = document.getElementById("authModalLabel");
 
-    // Chuyển sang form Đăng ký
-    switchToRegister.addEventListener("click", function (event) {
-        event.preventDefault();
-        loginForm.classList.add("d-none");
-        registerForm.classList.remove("d-none");
-        switchToRegister.classList.add("d-none");
-        switchToLogin.classList.remove("d-none");
-        modalTitle.innerText = "Đăng Ký";
+<script th:inline="javascript">
+document.addEventListener("DOMContentLoaded", function () {
+    // Xử lý đăng nhập
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        console.log("Login form submitted"); // Để debug
+        
+        const loginData = {
+            email: document.getElementById("login-email").value,
+            password: document.getElementById("login-password").value
+        };
+
+        console.log("Login data:", loginData); // Để debug
+
+        fetch('/api/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(loginData)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Đăng nhập thất bại');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("Response data:", data); // Để debug
+            if (data.token) {
+                localStorage.setItem('token', data.token);
+                alert('Đăng nhập thành công!');
+                // Thử cả hai cách
+                window.location.href = '/indexLogin';
+                // Nếu cách trên không được, thử cách này
+                window.location.replace('/indexLogin');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Đăng nhập thất bại: ' + error.message);
+        });
     });
+    // Xử lý đăng ký
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        
+        const password = document.getElementById("register-password").value;
+        const confirmPassword = document.getElementById("register-confirm-password").value;
 
-    // Chuyển sang form Đăng nhập
-    switchToLogin.addEventListener("click", function (event) {
-        event.preventDefault();
-        registerForm.classList.add("d-none");
-        loginForm.classList.remove("d-none");
-        switchToLogin.classList.add("d-none");
-        switchToRegister.classList.remove("d-none");
-        modalTitle.innerText = "Đăng Nhập";
-    });
+        if (password !== confirmPassword) {
+            alert("Mật khẩu xác nhận không khớp!");
+            return;
+        }
 
-    // Xử lý khi submit form Đăng nhập
-    loginForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-        alert("Xử lý đăng nhập...");
-        // Gửi request đăng nhập lên server ở đây
-    });
+        const registerData = {
+            fullName: document.getElementById("register-name").value,
+            email: document.getElementById("register-email").value,
+            phone: document.getElementById("register-phone").value,
+            password: password
+        };
 
-    // Xử lý khi submit form Đăng ký
-    registerForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-        alert("Xử lý đăng ký...");
-        // Gửi request đăng ký lên server ở đây
+        fetch('/api/auth/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(registerData)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Đăng ký thất bại');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.token) {
+                localStorage.setItem('token', data.token);
+                alert('Đăng ký thành công!');
+                location.reload();
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Đăng ký thất bại: ' + error.message);
+        });
     });
 });
-
 </script>
 </div>

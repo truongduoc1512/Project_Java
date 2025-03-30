@@ -175,3 +175,59 @@ function loadPage(page) {
       });
     });
   });
+
+  document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const loginData = {
+        email: document.getElementById('loginEmail').value,
+        password: document.getElementById('loginPassword').value
+    };
+
+    fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(loginData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.token) {
+            localStorage.setItem('token', data.token);
+            alert('Đăng nhập thành công!');
+            location.reload();
+        }
+    })
+    .catch(error => {
+        alert('Đăng nhập thất bại!');
+    });
+});
+
+document.getElementById('registerForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const registerData = {
+        fullName: document.getElementById('registerFullName').value,
+        email: document.getElementById('registerEmail').value,
+        phone: document.getElementById('registerPhone').value,
+        password: document.getElementById('registerPassword').value
+    };
+
+    fetch('/api/auth/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(registerData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.token) {
+            localStorage.setItem('token', data.token);
+            alert('Đăng ký thành công!');
+            location.reload();
+        }
+    })
+    .catch(error => {
+        alert('Đăng ký thất bại!');
+    });
+});
