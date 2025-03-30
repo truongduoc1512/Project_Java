@@ -24,8 +24,7 @@ public class IndexController {
     }
 
     @GetMapping("/pages/index_DatLich")
-    public String homePage() {
-       
+    public String homePage() {      
         return "pages/index_DatLich";
     }
 
