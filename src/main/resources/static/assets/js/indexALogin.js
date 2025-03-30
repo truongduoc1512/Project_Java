@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // "Bảng giá": "<h1>Giá</h1><p>Thông tin về giá tiêm vaccine.</p>",
     // "Cẩm nang tiêm chủng":
     //   "<h1>Cẩm nang tiêm chủng</h1><p>Hướng dẫn tiêm vaccine.</p>",
-    // "Gói vaccine": "<h1>Gói vaccine</h1><p>Thông tin về các gói vaccine.</p>",
+    "Gói vaccine": "/pages/goivaccinetreem",
     // "Tin tức": "<h1>Tin tức</h1><p>Các tin tức mới nhất về tiêm vaccine.</p>",
     "Bảng giá": "/pages/banggia",
     Support: "/pages/indexSP",

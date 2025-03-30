@@ -56,6 +56,11 @@ public class IndexController {
         return "pages/banggia";
     }
 
+    @GetMapping("/pages/goivaccinetreem")
+    public String goivaccinetreemPage(){
+        return "pages/goivaccinetreem";
+    }
+
     @GetMapping("/pages/home")
     public String home(){
         return "pages/home";
