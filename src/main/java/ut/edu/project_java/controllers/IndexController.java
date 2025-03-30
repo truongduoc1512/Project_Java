@@ -10,35 +10,35 @@ public class IndexController {
 
     @GetMapping({"/", "/index"}) 
     public String indexPage() {
-        return "index"; // Gọi file index.html trong thư mục templates
+        return "index"; 
     }
 
     @GetMapping({"/indexLogin"})
     public String indexAfterLoginPage() {
-        return "indexAfterLogin"; // Gọi file indexAfterLogin.html trong thư mục templates
+        return "indexAfterLogin"; 
     }
 
     @GetMapping("/loadPage/{page}")
     public String loadPage(@PathVariable String page, Model model) {
-        return "pages/" + page ; // Sửa lỗi ở đây
+        return "pages/" + page ; 
     }
 
     @GetMapping("/pages/index_DatLich")
     public String homePage() {
-        System.out.println("Serving home page");
-        return "pages/index_DatLich"; // Tìm file home.html trong thư mục templates/pages
+       
+        return "pages/index_DatLich";
     }
 
     @GetMapping("/pages/indexSP")
     public String SupportPage() {
-        System.out.println("Serving home page");
-        return "pages/indexSP"; // Tìm file home.html trong thư mục templates/pages
+        
+        return "pages/indexSP"; 
     }
 
     @GetMapping("/pages/index_ChamSocKhachHang")
     public String ChamSocKhachHangPage() {
-        System.out.println("Serving home page");
-        return "pages/index_ChamSocKhachHang"; // Tìm file home.html trong thư mục templates/pages
+        
+        return "pages/index_ChamSocKhachHang"; 
     }
 
     @GetMapping("/pages/create_support")
@@ -49,6 +49,11 @@ public class IndexController {
     @GetMapping("/pages/check_status")
     public String checkStatus(){
         return "pages/check_status";
+    }
+
+    @GetMapping("/pages/banggia")
+    public String banggiaPage(){
+        return "pages/banggia";
     }
 
     @GetMapping("/pages/home")
