@@ -13,7 +13,7 @@ function loadPage(page) {
 document.addEventListener("DOMContentLoaded", function () {
   const menuItems = document.querySelectorAll(".menu-item");
   const submenuItems = document.querySelectorAll(".submenu-item");
-  const navItems = document.querySelectorAll(".nav-item");
+  const navItems = document.querySelectorAll(".navbar-nav .nav-item");
   const content = document.getElementById("content");
 
   const pages = {
@@ -26,9 +26,11 @@ document.addEventListener("DOMContentLoaded", function () {
     //   "<h1>Cẩm nang tiêm chủng</h1><p>Hướng dẫn tiêm vaccine.</p>",
     // "Gói vaccine": "<h1>Gói vaccine</h1><p>Thông tin về các gói vaccine.</p>",
     // "Tin tức": "<h1>Tin tức</h1><p>Các tin tức mới nhất về tiêm vaccine.</p>",
+    "Bảng giá": "/pages/banggia",
     Support: "/pages/indexSP",
     "Đặt lịch": "/pages/index_DatLich",
     "Chăm sóc khách hàng": "/pages/index_ChamSocKhachHang",
+    
     // "Cập nhật hồ sơ trẻ em":
     //   "<h1>Cập nhật hồ sơ trẻ em</h1><p>Thay đổi thông tin hồ sơ của trẻ.</p>",
     // "Cập nhật quá trình tiêm chủng":
@@ -132,7 +134,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Hiển thị nội dung tương ứng
       const text = item.innerText.trim();
-      content.innerHTML = pages[text] || "<h1>Trang chưa có nội dung</h1>";
+      if (pages[text]) {
+        console.log("Calling loadPage with:", pages[text]);
+        loadPage(pages[text]);
+      } else {
+        console.log("No page found for:", text);
+      }
     });
   });
 });
