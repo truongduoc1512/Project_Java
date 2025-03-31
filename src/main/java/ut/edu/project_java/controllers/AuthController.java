@@ -18,6 +18,19 @@ public class AuthController {
     private AuthService authService;
 
     // API Đăng ký
+    @PostMapping("/register")
+    public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest request) {
+        try {
+            AuthResponse response = authService.register(request);
+            System.out.println("Register successful: " + response); // Để debug
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.badRequest().body(new AuthResponse(null, e.getMessage(), null));
+        }
+    }
+
+    // API Đăng nhập
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request) {
         try {
