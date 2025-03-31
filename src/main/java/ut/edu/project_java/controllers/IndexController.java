@@ -60,6 +60,18 @@ public class IndexController {
         return "pages/goivaccinetreem";
     }
 
+    @GetMapping("/pages/index_CapNhatHS")
+    public String CapNhatHSPage() {
+        
+        return "pages/index_CapNhatHS"; 
+    }
+
+    @GetMapping("/pages/index_HistoryPay")
+    public String HistoryPayPage() {
+        
+        return "pages/index_HistoryPay"; 
+    }
+
     @GetMapping("/pages/home")
     public String home(){
         return "pages/home";

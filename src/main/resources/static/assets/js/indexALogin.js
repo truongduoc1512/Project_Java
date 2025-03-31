@@ -30,14 +30,13 @@ document.addEventListener("DOMContentLoaded", function () {
     Support: "/pages/indexSP",
     "Đặt lịch": "/pages/index_DatLich",
     "Chăm sóc khách hàng": "/pages/index_ChamSocKhachHang",
-    
-    // "Cập nhật hồ sơ trẻ em":
-    //   "<h1>Cập nhật hồ sơ trẻ em</h1><p>Thay đổi thông tin hồ sơ của trẻ.</p>",
+
+    "Cập nhật hồ sơ trẻ em": "/pages/index_CapNhatHS",
     // "Cập nhật quá trình tiêm chủng":
     //   "<h1>Cập nhật quá trình tiêm chủng</h1><p>Quản lý tiến trình tiêm chủng.</p>",
     // "Thông báo":
     //   "<h1>Thông báo</h1><p>Các thông báo mới nhất về tiêm vaccine.</p>",
-    //"Lịch sử giao dịch": "/pages/index_HistoryPay",
+    "Lịch sử giao dịch": "/pages/index_HistoryPay",
     // "Phản hồi":
     //   "<h1>Phản hồi</h1><p>Đóng góp ý kiến và phản hồi về hệ thống.</p>",
   };
@@ -90,7 +89,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Hiển thị nội dung tương ứng
       const text = item.innerText.trim();
-      content.innerHTML = pages[text] || "<h1>Trang chưa có nội dung</h1>";
+      if (pages[text]) {
+        console.log("Calling loadPage with:", pages[text]);
+        loadPage(pages[text]);
+      } else {
+        console.log("No page found for:", text);
+      }
     });
   });
 
