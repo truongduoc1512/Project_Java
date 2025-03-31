@@ -76,4 +76,9 @@ public class IndexController {
     public String home(){
         return "pages/home";
     }
+
+    @GetMapping("/pages/indexTT")
+    public String Tintuc(){
+        return "pages/indexTT";
+    }
 }

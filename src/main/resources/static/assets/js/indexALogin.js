@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // "Cẩm nang tiêm chủng":
     //   "<h1>Cẩm nang tiêm chủng</h1><p>Hướng dẫn tiêm vaccine.</p>",
     "Gói vaccine": "/pages/goivaccinetreem",
-    // "Tin tức": "<h1>Tin tức</h1><p>Các tin tức mới nhất về tiêm vaccine.</p>",
+    "Tin tức": "/pages/indexTT",
     "Bảng giá": "/pages/banggia",
     Support: "/pages/indexSP",
     "Đặt lịch": "/pages/index_DatLich",
