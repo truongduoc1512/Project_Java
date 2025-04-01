@@ -81,4 +81,9 @@ public class IndexController {
     public String Tintuc(){
         return "pages/indexTT";
     }
+
+    @GetMapping("/pages/index_GioiThieu")
+    public String GioiThieuPage(){
+        return "pages/index_GioiThieu";
+    }
 }

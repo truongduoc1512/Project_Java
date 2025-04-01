@@ -19,8 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const pages = {
     // "Trang chủ":
     //   "<h1>Trang chủ</h1><p>Đây là trang chủ của hệ thống quản lý tiêm vaccine.</p>",
-    // "Dịch vụ tiêm chủng":
-    //   "<h1>Dịch vụ tiêm chủng</h1><p>Thông tin về dịch vụ tiêm vaccine.</p>",
+    "Dịch vụ tiêm chủng": "/pages/index_GioiThieu",
     // "Bảng giá": "<h1>Giá</h1><p>Thông tin về giá tiêm vaccine.</p>",
     // "Cẩm nang tiêm chủng":
     //   "<h1>Cẩm nang tiêm chủng</h1><p>Hướng dẫn tiêm vaccine.</p>",
