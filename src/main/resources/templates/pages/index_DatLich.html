@@ -9,7 +9,7 @@
     </p>
 
     <!-- Image under the title -->
-    <div class="banner-image">
+    <div style="width:100%;" class="banner-image">
       <img
         src="../assets/img/Datlich.jpg"
         alt="Vaccine Banner"
@@ -28,17 +28,17 @@
 
           <div class="mb-3">
             <label class="form-label">* Họ tên người tiêm</label>
-            <input type="text" class="form-control" required />
+            <input type="text" id="hoTenNguoiTiem" class="form-control" required />
           </div>
 
           <div class="row">
             <div class="col-md-6 mb-3">
               <label class="form-label">* Ngày sinh</label>
-              <input type="date" class="form-control" required />
+              <input type="date" id="ngaySinh" class="form-control" required />
             </div>
             <div class="col-md-6 mb-3">
               <label class="form-label">Mã khách hàng CVC (nếu có)</label>
-              <input type="text" class="form-control" />
+              <input type="text" id="maKhachHang" class="form-control" required />
             </div>
           </div>
 
@@ -53,27 +53,21 @@
           <div class="row">
             <div class="col-md-4 mb-3">
               <label class="form-label">* Tỉnh thành</label>
-              <select id="province" class="form-select" required>
-                <option value="">Chọn</option>
-              </select>
+              <input type="text" id="province" class="form-control" placeholder="Nhập tỉnh/thành" required />
             </div>
             <div class="col-md-4 mb-3">
               <label class="form-label">* Quận huyện</label>
-              <select id="district" class="form-select" required>
-                <option value="">Chọn tỉnh thành trước</option>
-              </select>
+              <input type="text" id="district" class="form-control" placeholder="Nhập quận/huyện" required />
             </div>
             <div class="col-md-4 mb-3">
               <label class="form-label">* Phường xã</label>
-              <select id="ward" class="form-select" required>
-                <option value="">Chọn quận huyện trước</option>
-              </select>
+              <input type="text" id="ward" class="form-control" placeholder="Nhập phường/xã" required />
             </div>
           </div>
 
           <div class="mb-3">
             <label class="form-label">* Số nhà, tên đường</label>
-            <input type="text" class="form-control" required />
+            <input type="text" id="diaChi" class="form-control" required />
           </div>
         </fieldset>
 
@@ -83,13 +77,13 @@
 
           <div class="mb-3">
             <label class="form-label">* Họ tên người liên hệ</label>
-            <input type="text" class="form-control" required />
+            <input type="text" id="hoTenNguoiLienHe" class="form-control" required />
           </div>
 
           <div class="row">
             <div class="col-md-6 mb-3">
               <label class="form-label">* Mối quan hệ</label>
-              <select class="form-select" required>
+              <select id="moiQuanHe" class="form-select" required>
                 <option value="">Chọn</option>
                 <option value="Bố/Mẹ">Bố/Mẹ</option>
                 <option value="Anh/Chị">Anh/Chị</option>
@@ -98,7 +92,7 @@
             </div>
             <div class="col-md-6 mb-3">
               <label class="form-label">* Số điện thoại</label>
-              <input type="tel" class="form-control" required />
+              <input type="tel" id="soDienThoai" class="form-control" required />
             </div>
           </div>
         </fieldset>
@@ -110,37 +104,34 @@
           <div class="mb-3">
             <label class="form-label">* Loại vắc xin muốn đăng ký</label>
             <div>
-              <input type="radio" name="vaccineType" value="Vắc xin gói" /> Vắc
-              xin gói
-              <input
-                type="radio"
-                name="vaccineType"
-                value="Vắc xin lẻ"
-                class="ms-3"
-              />
+              <input type="radio" name="vaccineType" value="Vắc xin gói" />
+              Vắc xin gói
+              <input type="radio" name="vaccineType" value="Vắc xin lẻ" class="ms-3" />
               Vắc xin lẻ
             </div>
           </div>
 
           <div class="mb-3">
             <label class="form-label">* Trung tâm CVC muốn tiêm</label>
-            <select class="form-select" required>
+            <select id="trungTam" class="form-select" required>
               <option value="">Chọn</option>
+              <option value="Q1">Trung tâm CVC quận 1</option>
+              <option value="Q4">Trung tâm CVC quận 4</option>
+              <option value="QBT">Trung tâm CVC quận Bình Thạnh</option>
+              <option value="QTD">Trung tâm CVC Thủ Đức</option>
             </select>
           </div>
 
           <div class="mb-3">
             <label class="form-label">* Ngày mong muốn tiêm</label>
-            <input type="date" class="form-control" required />
+            <input type="date" id="ngayTiem" class="form-control" required />
           </div>
         </fieldset>
 
-        <button type="submit" class="btn btn-primary w-100">
+        <button type="button" class="btn btn-primary w-100" onclick="handleSubmit()">
           Hoàn thành đăng ký
-        </button>
+        </button>        
       </form>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="main_DatLich.js"></script>
 </body>
