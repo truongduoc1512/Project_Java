@@ -16,13 +16,13 @@ public class SupportRequest {
     private String name;
     private String email;
     private String phone;
-    private String topic;
-    private String priority;
-    private String attachment;
-    private String title;
+    private String chude;
+    private String douutien;
+    private String tepdinhkem;
+    private String tieude;
 
     @Column(columnDefinition = "TEXT")
-    private String details;
+    private String chitiet;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
@@ -37,20 +37,20 @@ public class SupportRequest {
     public String getPhone() { return phone; }
     public void setPhone(String phone) { this.phone = phone; }
 
-    public String getTopic() { return topic; }
-    public void setTopic(String topic) { this.topic = topic; }
+    public String getChude() { return chude; }
+    public void setChude(String chude) { this.chude = chude; }
 
-    public String getPriority() { return priority; }
-    public void setPriority(String priority) { this.priority = priority; }
+    public String getDouutien() { return douutien; }
+    public void setDouutien(String douutien) { this.douutien = douutien; }
 
-    public String getAttachment() { return attachment; }
-    public void setAttachment(String attachment) { this.attachment = attachment; }
+    public String getTepdinhkem() { return tepdinhkem; }
+    public void setTepdinhkem(String tepdinhkem) { this.tepdinhkem = tepdinhkem; }
 
-    public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
+    public String getTieude() { return tieude; }
+    public void setTieude(String tieude) { this.tieude = tieude; }
 
-    public String getDetails() { return details; }
-    public void setDetails(String details) { this.details = details; }
+    public String getChitiet() { return chitiet; }
+    public void setChitiet(String chitiet) { this.chitiet = chitiet; }
 
     public LocalDateTime getCreatedAt() { return createdAt; }
 }

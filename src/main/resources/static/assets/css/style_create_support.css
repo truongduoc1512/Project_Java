@@ -61,7 +61,7 @@ body {
 }
 
 .support-btn-submit:hover {
-    box-shadow: inset 100vw 0 0 0 #faf9fb !important;
-    color: #0072bc !important;
-    border-color: #0072bc;
+     background-color: #005a94;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 114, 188, 0.3);
 }

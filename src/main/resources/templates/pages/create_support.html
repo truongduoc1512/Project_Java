@@ -30,7 +30,7 @@
             </div>
             <div class="support-form-group">
                 <label for="topic">Chủ đề hỗ trợ</label>
-                <select class="support-form-control" id="topic">
+                <select class="support-form-control" id="chude">
                     <option value="0">Chọn chủ đề hỗ trợ</option>
                     <option value="Kỹ thuật">Kỹ thuật</option>
                     <option value="Thanh toán">Thanh toán</option>
@@ -41,28 +41,29 @@
             <div class="support-form-group">
                 <label>Mức độ ưu tiên</label>
                 <div>
-                    <label><input type="radio" name="priority" value="low" checked> Thấp</label>
-                    <label><input type="radio" name="priority" value="medium"> Trung bình</label>
-                    <label><input type="radio" name="priority" value="high"> Cao</label>
+                    <label><input type="radio" name="douutien" value="low" checked> Thấp</label>
+                    <label><input type="radio" name="douutien" value="medium"> Trung bình</label>
+                    <label><input type="radio" name="douutien" value="high"> Cao</label>
                 </div>
             </div>
             <div class="support-form-group">
                 <label for="attachment">Tệp đính kèm</label>
-                <input class="support-form-control" type="file" id="attachment">
+                <input class="support-form-control" type="file" id="tepdinhkem">
             </div>
             <div class="support-form-group">
-                <label for="title">Tiêu đề hỗ trợ <span class="text-danger">*</span></label>
-                <input class="support-form-control" type="text" id="title" maxlength="50" required>
+                <label for="tieude">Tiêu đề hỗ trợ <span class="text-danger">*</span></label>
+                <input class="support-form-control" type="text" id="tieude" maxlength="50" required>
             </div>
             <div class="support-form-group">
-                <label for="details">Chi tiết yêu cầu</label>
-                <textarea class="support-form-control" id="details" rows="3" required></textarea>
+                <label for="chitiet">Chi tiết yêu cầu <span class="text-danger">*</span></label>
+                <textarea class="support-form-control" id="chitiet" rows="3" required></textarea>
             </div>
             <div class="support-form-button">
-                <button type="submit" class="support-btn-submit">Gửi yêu cầu</button>
+                <button type="button" class="support-btn-submit" onclick="handleSupportSubmit()">Gửi yêu cầu </button>
+
             </div>
         </form>
     </div>
-
+    <script src="../assets/js/main_CreateSupport.js"></script>
 </body>
 </html>
