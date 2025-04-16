@@ -18,9 +18,10 @@ public class SecurityConfig {
         .csrf(csrf -> csrf.disable())
         .authorizeHttpRequests(auth -> auth
             .requestMatchers("/api/**").permitAll()
-            .requestMatchers("/", "/index", "/indexLogin", "/api/auth/**").permitAll()
+            .requestMatchers("/", "/index", "/indexLogin","/admin", "/api/auth/**").permitAll()
             .requestMatchers("/assets/**", "/lib/**", "/static/**").permitAll()
-            .requestMatchers("/pages/**").permitAll() 
+            .requestMatchers("/pages/**").permitAll()
+            .requestMatchers("/adminPages/**").permitAll() 
             .requestMatchers("/**/*.js", "/**/*.css", "/**/*.jpg", "/**/*.png").permitAll()
             .anyRequest().authenticated()
         )
