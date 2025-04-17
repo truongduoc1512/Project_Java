@@ -29,8 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "Thông tin khách hàng": "/pages/Index_ThongTinKhachHang",
 
     "Cập nhật hồ sơ trẻ em": "/pages/index_CapNhatHS",
-    // "Cập nhật quá trình tiêm chủng":
-    //   "<h1>Cập nhật quá trình tiêm chủng</h1><p>Quản lý tiến trình tiêm chủng.</p>",
+    "Cập nhật quá trình tiêm chủng": "/pages/Index_QTTCUser",
     // "Thông báo":
     //   "<h1>Thông báo</h1><p>Các thông báo mới nhất về tiêm vaccine.</p>",
     "Lịch sử giao dịch": "/pages/index_HistoryPay",

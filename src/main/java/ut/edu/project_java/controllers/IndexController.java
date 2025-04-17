@@ -96,4 +96,9 @@ public class IndexController {
     public String ThongTinKhachHangPage(){
         return "pages/Index_ThongTinKhachHang";
     }
+
+    @GetMapping("/pages/Index_QTTCUser")
+    public String QTTCUserPage(){
+        return "pages/Index_QTTCUser";
+    }
 }
