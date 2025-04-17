@@ -86,4 +86,9 @@ public class IndexController {
     public String GioiThieuPage(){
         return "pages/index_GioiThieu";
     }
+
+    @GetMapping("/pages/camnangtiemchung")
+    public String camnangtiemchungPage(){
+        return "pages/camnangtiemchung";
+    }
 }

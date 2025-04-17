@@ -145,12 +145,11 @@ function loadPage(page) {
   
     const pages = {
       "Trang chủ": "/pages/home",
-      // "Dịch vụ tiêm chủng":
-      //   "<h1>Dịch vụ tiêm chủng</h1><p>Thông tin về dịch vụ tiêm vaccine.</p>",
+      "Dịch vụ tiêm chủng": "/pages/index_GioiThieu",
       "Bảng giá": "/pages/banggia",
-      // "Cẩm nang tiêm chủng":
-      //   "<h1>Cẩm nang tiêm chủng</h1><p>Hướng dẫn tiêm vaccine.</p>",
+      "Cẩm nang tiêm chủng": "/pages/camnangtiemchung",
       "Gói vaccine": "/pages/goivaccinetreem", 
+      "Tin tức": "/pages/indexTT",
       // "Tin tức": "<h1>Tin tức</h1><p>Các tin tức mới nhất về tiêm vaccine.</p>",
     //   "Đặt lịch": "/pages/index_DatLich",
     };
@@ -199,7 +198,8 @@ function loadPage(page) {
         }
     })
     .catch(error => {
-        alert('Đăng nhập thất bại!');
+        var myModal = new bootstrap.Modal(document.getElementById('loginErrorModal'));
+        myModal.show();
     });
 });
 

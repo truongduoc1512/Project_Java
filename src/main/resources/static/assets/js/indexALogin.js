@@ -17,12 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const content = document.getElementById("content");
 
   const pages = {
-    // "Trang chủ":
-    //   "<h1>Trang chủ</h1><p>Đây là trang chủ của hệ thống quản lý tiêm vaccine.</p>",
     "Dịch vụ tiêm chủng": "/pages/index_GioiThieu",
-    // "Bảng giá": "<h1>Giá</h1><p>Thông tin về giá tiêm vaccine.</p>",
-    // "Cẩm nang tiêm chủng":
-    //   "<h1>Cẩm nang tiêm chủng</h1><p>Hướng dẫn tiêm vaccine.</p>",
+    "Cẩm nang tiêm chủng": "/pages/camnangtiemchung",
     "Gói vaccine": "/pages/goivaccinetreem",
     "Tin tức": "/pages/indexTT",
     "Bảng giá": "/pages/banggia",
