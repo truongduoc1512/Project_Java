@@ -91,4 +91,9 @@ public class IndexController {
     public String camnangtiemchungPage(){
         return "pages/camnangtiemchung";
     }
+
+    @GetMapping("/pages/Index_ThongTinKhachHang")
+    public String ThongTinKhachHangPage(){
+        return "pages/Index_ThongTinKhachHang";
+    }
 }

@@ -26,6 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
     "Đặt lịch": "/pages/index_DatLich",
     "Chăm sóc khách hàng": "/pages/index_ChamSocKhachHang",
 
+    "Thông tin khách hàng": "/pages/Index_ThongTinKhachHang",
+
     "Cập nhật hồ sơ trẻ em": "/pages/index_CapNhatHS",
     // "Cập nhật quá trình tiêm chủng":
     //   "<h1>Cập nhật quá trình tiêm chủng</h1><p>Quản lý tiến trình tiêm chủng.</p>",
