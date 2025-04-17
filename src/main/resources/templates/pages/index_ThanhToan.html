@@ -1,0 +1,161 @@
+<style>
+  body {
+    background: linear-gradient(to right, #f0f4f8, #e8f0ff);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .header_ThanhToan {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .header_ThanhToan h1 {
+    font-weight: bold;
+    font-size: 2.8rem;
+    color: #0d6efd;
+  }
+
+  .header_ThanhToan i {
+    font-size: 2.5rem;
+    color: #0d6efd;
+    margin-bottom: 10px;
+  }
+
+  .payment-box {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    margin-top: 30px;
+  }
+
+  .info-title {
+    color: #0d6efd;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  .payment-options {
+    margin-top: 40px;
+  }
+
+  .payment-options .btn {
+    border-radius: 30px;
+    padding: 10px 25px;
+    font-weight: 500;
+  }
+
+  .payment-box p {
+    margin: 8px 0;
+    font-size: 1.05rem;
+  }
+
+  .qr-image {
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
+    margin-top: 20px;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    background-color: #fff;
+    padding: 8px;
+  }
+
+  .btn-confirm {
+    margin-top: 25px;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 1.1rem;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <div class="header_ThanhToan">
+      <i class="fas fa-file-invoice-dollar"></i>
+      <h1>Thanh Toán Dịch Vụ</h1>
+    </div>
+
+    <!-- Thông tin đặt lịch -->
+    <div id="infoDisplay" class="payment-box"></div>
+
+    <!-- Lựa chọn thanh toán -->
+    <div class="payment-options text-center">
+      <div class="btn-group d-flex justify-content-center gap-3 flex-wrap">
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          onclick="showPayment('cash')"
+        >
+          <i class="fas fa-money-bill-wave me-2"></i>Tiền mặt
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-success"
+          onclick="showPayment('qr')"
+        >
+          <i class="fas fa-qrcode me-2"></i>Quét mã QR
+        </button>
+      </div>
+      <div id="paymentContent" class="mt-4"></div>
+    </div>
+  </div>
+
+  <script>
+    function showPayment(type) {
+      const content = document.getElementById("paymentContent");
+      if (type === "cash") {
+        content.innerHTML = `
+            <div class="payment-box text-center">
+              <h4 class="text-primary fw-bold mb-3"><i class="fas fa-hand-holding-usd me-2"></i>Thanh toán tiền mặt</h4>
+              <p>Vui lòng thanh toán tại quầy lễ tân sau khi hoàn tất đặt lịch.</p>
+              <p>Chúng tôi luôn sẵn sàng hỗ trợ bạn!</p>
+              <button class="btn btn-primary btn-confirm" onclick="confirmCashPayment()">Xác nhận</button>
+            </div>
+          `;
+      } else if (type === "qr") {
+        content.innerHTML = `
+            <div class="payment-box text-center">
+              <h4 class="text-success fw-bold mb-3"><i class="fas fa-qrcode me-2"></i>Quét mã QR</h4>
+              <p>Vui lòng dùng app ngân hàng hoặc ví điện tử để quét mã dưới đây.</p>
+              <img src="Image/6dfbcd0ec8257b7b2234.jpg" alt="QR Code" class="qr-image" />
+              <p class="mt-3">Đảm bảo nhập đúng số tiền và nội dung chuyển khoản.</p>
+              <button class="btn btn-success btn-confirm" onclick="confirmQrPayment()">Tôi đã thanh toán</button>
+            </div>
+          `;
+      }
+    }
+
+    function confirmCashPayment() {
+      alert(
+        "Cảm ơn bạn đã xác nhận thanh toán bằng tiền mặt!\nChúng tôi sẽ tiến hành xử lý đơn hàng của bạn."
+      );
+    }
+
+    function confirmQrPayment() {
+      alert(
+        "Thanh toán QR đã thành công!\nChúng tôi sẽ xác nhận giao dịch và gửi thông báo cho bạn."
+      );
+    }
+
+    window.onload = function () {
+      const data = JSON.parse(localStorage.getItem("thongTinDatLich"));
+      if (data) {
+        document.getElementById("infoDisplay").innerHTML = `
+            <h4 class="info-title"><i class="fas fa-user-check me-2"></i>Thông tin đặt lịch</h4>
+            <p><strong>Họ tên người tiêm:</strong> ${data.hoTenNguoiTiem}</p>
+            <p><strong>Ngày sinh:</strong> ${data.ngaySinh}</p>
+            <p><strong>Giới tính:</strong> ${data.gioiTinh}</p>
+            <p><strong>Địa chỉ:</strong> ${data.diaChi}, ${data.ward}, ${data.district}, ${data.province}</p>
+            <p><strong>Người liên hệ:</strong> ${data.hoTenNguoiLienHe} (${data.moiQuanHe})</p>
+            <p><strong>Số điện thoại:</strong> ${data.soDienThoai}</p>
+            <p><strong>Loại vắc xin:</strong> ${data.vaccineType}</p>
+            <p><strong>Trung tâm tiêm:</strong> ${data.trungTam}</p>
+            <p><strong>Ngày tiêm:</strong> ${data.ngayTiem}</p>
+          `;
+      }
+    };
+  </script>
+</body>
