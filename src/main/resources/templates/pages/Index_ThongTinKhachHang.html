@@ -147,37 +147,39 @@
       </div>
     </form>
   </div>
-
   <script>
-    const editBtn = document.getElementById("editBtn");
-    const saveBtn = document.getElementById("saveBtn");
-    const form = document.getElementById("customerForm");
-    const inputs = form.querySelectorAll("input, select, textarea");
-
-    editBtn.addEventListener("click", () => {
-      inputs.forEach((input) => {
-        if (input.tagName === "SELECT" || input.tagName === "TEXTAREA") {
-          input.removeAttribute("disabled");
-        } else {
-          input.removeAttribute("readonly");
-        }
+    document.addEventListener("DOMContentLoaded", () => {
+      const editBtn = document.getElementById("editBtn");
+      const saveBtn = document.getElementById("saveBtn");
+      const form = document.getElementById("customerForm");
+      const inputs = form.querySelectorAll("input, select, textarea");
+  
+      editBtn.addEventListener("click", () => {
+        console.log("Edit button clicked");
+        inputs.forEach((input) => {
+          if (input.tagName === "SELECT" || input.tagName === "TEXTAREA") {
+            input.removeAttribute("disabled");
+          } else {
+            input.removeAttribute("readonly");
+          }
+        });
+        editBtn.classList.add("d-none");
+        saveBtn.classList.remove("d-none");
       });
-      editBtn.classList.add("d-none");
-      saveBtn.classList.remove("d-none");
-    });
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      inputs.forEach((input) => {
-        if (input.tagName === "SELECT" || input.tagName === "TEXTAREA") {
-          input.setAttribute("disabled", true);
-        } else {
-          input.setAttribute("readonly", true);
-        }
+  
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        inputs.forEach((input) => {
+          if (input.tagName === "SELECT" || input.tagName === "TEXTAREA") {
+            input.setAttribute("disabled", true);
+          } else {
+            input.setAttribute("readonly", true);
+          }
+        });
+        editBtn.classList.remove("d-none");
+        saveBtn.classList.add("d-none");
+        alert("Thông tin đã được cập nhật!");
       });
-      editBtn.classList.remove("d-none");
-      saveBtn.classList.add("d-none");
-      alert("Thông tin đã được cập nhật!");
     });
   </script>
 </body>

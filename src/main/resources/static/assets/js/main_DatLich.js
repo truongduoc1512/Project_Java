@@ -1,5 +1,6 @@
 function handleSubmit() {
   // Lấy từng giá trị
+  console.log("Submit button clicked!");
   const hoTenNguoiTiem = document.getElementById("hoTenNguoiTiem").value.trim();
   const ngaySinh = document.getElementById("ngaySinh").value;
   const maKhachHang = document.getElementById("maKhachHang").value.trim();
@@ -29,6 +30,29 @@ function handleSubmit() {
     return;
   }
 
+  const thongTinDatLich = {
+    hoTenNguoiTiem: document.getElementById("hoTenNguoiTiem").value,
+    ngaySinh: document.getElementById("ngaySinh").value,
+    gioiTinh: document.querySelector('input[name="gender"]:checked').value,
+    diaChi: document.getElementById("diaChi").value,
+    ward: document.getElementById("ward").value,
+    district: document.getElementById("district").value,
+    province: document.getElementById("province").value,
+    hoTenNguoiLienHe: document.getElementById("hoTenNguoiLienHe").value,
+    moiQuanHe: document.getElementById("moiQuanHe").value,
+    soDienThoai: document.getElementById("soDienThoai").value,
+    vaccineType: document.querySelector('input[name="vaccineType"]:checked').value,
+    trungTam: document.getElementById("trungTam").value,
+    ngayTiem: document.getElementById("ngayTiem").value,
+  };
+
+  if (maKhachHang !== "") {
+    data.maKhachHang = maKhachHang;
+  }
+
+  // Lưu vào localStorage
+  localStorage.setItem("thongTinDatLich", JSON.stringify(thongTinDatLich));
+
   // Nếu hợp lệ, gửi request
   fetch("http://localhost:8080/api/appointments", {
     method: "POST",
@@ -54,6 +78,7 @@ function handleSubmit() {
       if (response.ok) {
         alert("Đăng ký thành công!");
         document.querySelector("form").reset();
+        window.location.href = "/pages/index_ThanhToan";
       } else {
         const errorText = await response.text();
         console.error("Lỗi từ server:", errorText);

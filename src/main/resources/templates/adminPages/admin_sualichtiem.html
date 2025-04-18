@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Sửa Lịch Tiêm</title>
+</head>
+<body>
+  <h1>Sửa Lịch Tiêm</h1>
+  <form id="editForm">
+    <label>Họ tên: <input type="text" name="hoTenNguoiTiem" required /></label><br />
+    <label>Ngày sinh: <input type="date" name="ngaySinh" required /></label><br />
+    <label>Giới tính: <input type="text" name="gioiTinh" required /></label><br />
+    <label>Tỉnh: <input type="text" name="tinhThanh" required /></label><br />
+    <label>Quận/Huyện: <input type="text" name="quanHuyen" required /></label><br />
+    <label>Phường/Xã: <input type="text" name="phuongXa" required /></label><br />
+    <label>Người liên hệ: <input type="text" name="hoTenNguoiLienHe" required /></label><br />
+    <label>Mối quan hệ: <input type="text" name="moiQuanHe" required /></label><br />
+    <label>Số điện thoại: <input type="text" name="soDienThoai" required /></label><br />
+    <label>Loại vaccine: <input type="text" name="loaiVaccine" required /></label><br />
+    <label>Ngày tiêm: <input type="date" name="ngayTiem" required /></label><br />
+    <button type="submit">Cập nhật</button>
+  </form>
+
+  <script>
+    const id = new URLSearchParams(window.location.search).get("id");
+    const form = document.getElementById("editForm");
+
+    fetch(`http://localhost:8080/api/appointments/${id}`)
+      .then(res => res.json())
+      .then(data => {
+        for (const key in data) {
+          if (form.elements[key]) {
+            form.elements[key].value = data[key];
+          }
+        }
+      });
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const formData = Object.fromEntries(new FormData(form).entries());
+
+      fetch(`http://localhost:8080/api/appointments/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      })
+      .then(res => {
+        if (res.ok) {
+          alert("Cập nhật thành công!");
+          window.location.href = "danh-sach-lich-tiem.html"; // quay về danh sách
+        } else {
+          alert("Cập nhật thất bại.");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
