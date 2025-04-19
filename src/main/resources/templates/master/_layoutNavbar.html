@@ -221,10 +221,10 @@
           document.getElementById("loginForm").addEventListener("submit", function (e) {
             e.preventDefault();
       
-            const loginData = {
-              email: document.getElementById("login-email").value,
-              password: document.getElementById("login-password").value,
-            };
+            const email = document.getElementById("login-email").value;
+            const password = document.getElementById("login-password").value;
+          
+            const loginData = { email, password };
       
             fetch("/api/auth/login", {
               method: "POST",
@@ -242,8 +242,12 @@
               .then((data) => {
                 if (data.token) {
                   localStorage.setItem("token", data.token);
-                  // ✅ Không alert, chuyển thẳng
-                  window.location.href = "/indexLogin";
+                  if (email === "admin@gmail.com"){
+                    window.location.href = "/admin"; // ✅ Chuyển đến trang admin
+                  }
+                  else{
+                    window.location.href = "/indexLogin"; // ✅ Chuyển đến trang người dùng
+                  }
                 }
               })
               .catch(error => {
