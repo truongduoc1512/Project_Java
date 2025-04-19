@@ -1,3 +1,4 @@
+
 function loadPage(page) {
   console.log("Loading page:", page);
 
@@ -6,9 +7,35 @@ function loadPage(page) {
 
   fetch(url)
     .then((response) => response.text())
-    .then((html) => (document.getElementById("content").innerHTML = html))
+    .then((html) => {
+      document.getElementById("content").innerHTML = html;
+      if (page === "/pages/Index_ThongTinKhachHang") {
+        loadScript("../assets/js/thongtinkhachhang.js", () => {
+          window.initThongTinKhachHangPage?.();
+        });
+      }
+    
+      if (page === "/pages/index_DatLich") {
+        loadScript("../assets/js/main_DatLich.js", () => {
+          window.initDatLichPage?.();
+        });
+      }
+    })
     .catch((error) => console.error("Fetch error:", error));
 }
+
+let currentPageScript = null; // Lưu lại script đang dùng
+function loadScript(scriptUrl, callback) {
+  const script = document.createElement("script");
+  script.src = scriptUrl;
+  script.defer = true;
+  script.onload = () => {
+    if (typeof callback === "function") callback();
+  };
+  document.body.appendChild(script);
+}
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const menuItems = document.querySelectorAll(".menu-item");

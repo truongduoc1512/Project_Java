@@ -50,7 +50,6 @@
     </div>
 
     <form id="customerForm">
-      <!-- Thông tin người tiêm (trẻ) -->
       <h5 class="section-title text-start">👶 Thông Tin Trẻ Tiêm Chủng</h5>
       <div class="mb-3">
         <label class="form-label">Họ và tên</label>
@@ -58,7 +57,6 @@
           type="text"
           class="form-control"
           id="fullname"
-          value="Nguyễn Bé A"
           readonly
         />
       </div>
@@ -69,7 +67,6 @@
             type="date"
             class="form-control"
             id="dob"
-            value="2021-05-15"
             readonly
           />
         </div>
@@ -83,17 +80,15 @@
         </div>
       </div>
       <div class="mb-3">
-        <label class="form-label">Mã khách hàng (nếu có)</label>
-        <input type="text" class="form-control" value="CVC123456" readonly />
+        <label class="form-label">Mã khách hàng</label>
+        <input type="text" class="form-control" id="maKhachHang" readonly />
       </div>
       <div class="mb-3">
         <label class="form-label">Địa chỉ</label>
         <textarea class="form-control" id="address" rows="2" readonly>
-123 Lê Lợi, P. Bến Nghé, Q.1, TP.HCM</textarea
-        >
+        </textarea>
       </div>
-
-      <!-- Thông tin người giám hộ -->
+    
       <h5 class="section-title text-start">👨‍👩‍👧 Thông Tin Người Giám Hộ</h5>
       <div class="mb-3">
         <label class="form-label">Họ tên người liên hệ</label>
@@ -101,7 +96,6 @@
           type="text"
           class="form-control"
           id="guardianName"
-          value="Nguyễn Văn B"
           readonly
         />
       </div>
@@ -120,7 +114,6 @@
             type="tel"
             class="form-control"
             id="phone"
-            value="0901234567"
             readonly
           />
         </div>
@@ -131,31 +124,31 @@
           type="email"
           class="form-control"
           id="email"
-          value="lienhe@example.com"
           readonly
         />
       </div>
-
-      <!-- Nút hành động -->
-      <div class="text-end mt-4">
-        <button type="button" class="btn btn-outline-primary me-2" id="editBtn">
-          ✏️ Chỉnh sửa
-        </button>
-        <button type="submit" class="btn btn-success d-none" id="saveBtn">
-          💾 Lưu
-        </button>
+      <div class="text-end">
+        <button type="button" id="editBtn" class="btn btn-warning">Chỉnh sửa</button>
+        <button type="button" id="saveBtn" class="btn btn-success d-none">Hoàn thành</button>
       </div>
     </form>
   </div>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      console.log("Script loaded!"); // ✅ Kiểm tra xem đoạn script có chạy không
+  
       const editBtn = document.getElementById("editBtn");
       const saveBtn = document.getElementById("saveBtn");
       const form = document.getElementById("customerForm");
+  
+      console.log("editBtn:", editBtn);
+      console.log("saveBtn:", saveBtn);
+      console.log("form:", form);
+  
       const inputs = form.querySelectorAll("input, select, textarea");
   
       editBtn.addEventListener("click", () => {
-        console.log("Edit button clicked");
+        console.log("okkkk");
         inputs.forEach((input) => {
           if (input.tagName === "SELECT" || input.tagName === "TEXTAREA") {
             input.removeAttribute("disabled");
@@ -167,18 +160,41 @@
         saveBtn.classList.remove("d-none");
       });
   
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        inputs.forEach((input) => {
-          if (input.tagName === "SELECT" || input.tagName === "TEXTAREA") {
-            input.setAttribute("disabled", true);
-          } else {
-            input.setAttribute("readonly", true);
-          }
-        });
-        editBtn.classList.remove("d-none");
-        saveBtn.classList.add("d-none");
-        alert("Thông tin đã được cập nhật!");
+      saveBtn.addEventListener("click", () => {
+        const updatedData = {
+          fullname: document.getElementById("fullname").value,
+          dob: document.getElementById("dob").value,
+          gender: document.getElementById("gender").value,
+          maKhachHang: document.getElementById("maKhachHang").value,
+          address: document.getElementById("address").value,
+          guardianName: document.getElementById("guardianName").value,
+          relation: document.getElementById("relation").value,
+          phone: document.getElementById("phone").value,
+          email: document.getElementById("email").value
+        };
+  
+        fetch("API_URL_TO_UPDATE_USER", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updatedData)
+        })
+          .then(response => response.json())
+          .then(data => {
+            alert("Thông tin đã được cập nhật!");
+            inputs.forEach((input) => {
+              if (input.tagName === "SELECT" || input.tagName === "TEXTAREA") {
+                input.setAttribute("disabled", true);
+              } else {
+                input.setAttribute("readonly", true);
+              }
+            });
+            editBtn.classList.remove("d-none");
+            saveBtn.classList.add("d-none");
+          })
+          .catch(error => {
+            console.error("Lỗi khi cập nhật thông tin:", error);
+            alert("Có lỗi xảy ra khi cập nhật thông tin.");
+          });
       });
     });
   </script>

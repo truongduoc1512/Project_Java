@@ -14,11 +14,7 @@ public class Appointment {
     private String maKhachHang;
     private String gioiTinh;
 
-    private String tinhThanh;
-    private String quanHuyen;
-    private String phuongXa;
     private String diaChi;
-
     private String hoTenNguoiLienHe;
     private String moiQuanHe;
     private String soDienThoai;
@@ -26,6 +22,7 @@ public class Appointment {
     private String loaiVaccine;
     private String trungTam;
     private String ngayTiem;
+    private String email; 
 
     // Getters + Setters
     public Long getId() { return id; }
@@ -42,15 +39,6 @@ public class Appointment {
 
     public String getGioiTinh() { return gioiTinh; }
     public void setGioiTinh(String gioiTinh) { this.gioiTinh = gioiTinh; }
-
-    public String getTinhThanh() { return tinhThanh; }
-    public void setTinhThanh(String tinhThanh) { this.tinhThanh = tinhThanh; }
-
-    public String getQuanHuyen() { return quanHuyen; }
-    public void setQuanHuyen(String quanHuyen) { this.quanHuyen = quanHuyen; }
-
-    public String getPhuongXa() { return phuongXa; }
-    public void setPhuongXa(String phuongXa) { this.phuongXa = phuongXa; }
 
     public String getDiaChi() { return diaChi; }
     public void setDiaChi(String diaChi) { this.diaChi = diaChi; }
@@ -72,4 +60,7 @@ public class Appointment {
 
     public String getNgayTiem() { return ngayTiem; }
     public void setNgayTiem(String ngayTiem) { this.ngayTiem = ngayTiem; }
+
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 }

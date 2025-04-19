@@ -217,46 +217,62 @@
       </div>
       <script th:inline="javascript">
         document.addEventListener("DOMContentLoaded", function () {
-          // Xử lý đăng nhập
-          document.getElementById("loginForm").addEventListener("submit", function (e) {
-            e.preventDefault();
-      
-            const email = document.getElementById("login-email").value;
-            const password = document.getElementById("login-password").value;
-          
-            const loginData = { email, password };
-      
-            fetch("/api/auth/login", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(loginData),
+         // Xử lý đăng nhập
+        document.getElementById("loginForm").addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const email = document.getElementById("login-email").value;
+          const password = document.getElementById("login-password").value;
+
+          const loginData = { email, password };
+
+          fetch("/api/auth/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(loginData),
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Đăng nhập thất bại");
+              }
+              return response.json();
             })
-              .then((response) => {
-                if (!response.ok) {
-                  throw new Error("Đăng nhập thất bại");
+            .then((data) => {
+              console.log("Dữ liệu từ API:", data); // 👈 Xem log kiểm tra
+
+              if (data.token) {
+                // Lưu thông tin vào localStorage
+                localStorage.setItem("token", data.token);
+
+                // Nếu API trả về email ở ngoài
+                if (data.email) {
+                  localStorage.setItem("email", data.email);
                 }
-                return response.json();
-              })
-              .then((data) => {
-                if (data.token) {
-                  localStorage.setItem("token", data.token);
-                  if (email === "admin@gmail.com"){
-                    window.location.href = "/admin"; // ✅ Chuyển đến trang admin
-                  }
-                  else{
-                    window.location.href = "/indexLogin"; // ✅ Chuyển đến trang người dùng
+
+                // Nếu API trả về user object
+                if (data.user) {
+                  localStorage.setItem("currentUser", JSON.stringify(data.user));
+                  if (!data.email && data.user.email) {
+                    localStorage.setItem("email", data.user.email);
                   }
                 }
-              })
-              .catch(error => {
-                // ✅ Hiện modal nếu sai
-                var myModal = new bootstrap.Modal(document.getElementById('loginErrorModal'));
-                myModal.show();
-              });
-          });
-      
+
+                // Chuyển trang
+                if (email === "admin@gmail.com") {
+                  window.location.href = "/admin"; // ✅ Chuyển đến trang admin
+                } else {
+                  window.location.href = "/indexLogin"; // ✅ Chuyển đến trang người dùng
+                }
+              }
+            })
+            .catch(error => {
+              console.error("Lỗi đăng nhập:", error);
+              var myModal = new bootstrap.Modal(document.getElementById('loginErrorModal'));
+              myModal.show();
+            });
+        });
           // Xử lý đăng ký
           document.getElementById("registerForm").addEventListener("submit", function (e) {
             e.preventDefault();

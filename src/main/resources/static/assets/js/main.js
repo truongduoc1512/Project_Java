@@ -175,6 +175,7 @@ function loadPage(page) {
     });
   });
 
+// Đăng nhập và Đăng ký
   document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const loginData = {
@@ -191,10 +192,16 @@ function loadPage(page) {
     })
     .then(response => response.json())
     .then(data => {
+        console.log(data);  // Kiểm tra dữ liệu nhận được từ API
         if (data.token) {
+            localStorage.setItem("email", data.email);
             localStorage.setItem('token', data.token);
+            localStorage.setItem('currentUser', JSON.stringify(data.user));
+            
             alert('Đăng nhập thành công!');
             location.reload();
+        } else {
+            console.log("Không có token trong phản hồi:", data);  // Nếu không có token
         }
     })
     .catch(error => {
