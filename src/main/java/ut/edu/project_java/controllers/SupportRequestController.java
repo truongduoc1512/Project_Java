@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.util.Optional;
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/api/support")
@@ -20,7 +22,7 @@ public class SupportRequestController {
     private SupportRequestRepository supportRequestRepository;
 
     @GetMapping("/{id}")
-public ResponseEntity<?> getSupport(@PathVariable Long id) {
+    public ResponseEntity<?> getSupport(@PathVariable Long id) {
     Optional<SupportRequest> support = supportRequestRepository.findById(id);
     if (support.isPresent()) {
         return ResponseEntity.ok(support.get());
@@ -32,6 +34,21 @@ public ResponseEntity<?> getSupport(@PathVariable Long id) {
     @PostMapping
     public SupportRequest createSupportRequest(@RequestBody SupportRequest supportRequest) {
         return supportRequestRepository.save(supportRequest);
+    }
+
+    @GetMapping
+    public List<SupportRequest> getAllSupportRequests() {
+        return supportRequestRepository.findAll();  
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteSupport(@PathVariable Long id) {
+        if (!supportRequestRepository.existsById(id)) {
+            return ResponseEntity.notFound().build();
+        }
+
+        supportRequestRepository.deleteById(id);
+        return ResponseEntity.ok().build();
     }
     
 }

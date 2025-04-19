@@ -13,6 +13,9 @@ function loadAdminPage(page) {
           console.log("🟢 Gọi loadLichTiemTable()");
           loadLichTiemTable();
         }
+        if (page.includes("admin_support") && typeof loadSupportRequests === "function") {
+          loadSupportRequests(); // nếu bạn gọi sau khi load HTML
+        }
       })
       .catch((error) => console.error("[ADMIN] Fetch error:", error));
   }
@@ -30,7 +33,7 @@ function loadAdminPage(page) {
     //   "Cập nhật hồ sơ trẻ em": "/adminPages/admin_capnhat_hoso.html",
     //   "Cập nhật quá trình tiêm chủng": "/adminPages/admin_capnhat_tiemchung.html",
     //   "Thông báo": "/adminPages/admin_thongbao.html",
-    //   "Support": "/adminPages/admin_hotro.html",
+      "Support": "/adminPages/admin_support",
     //   "Lịch sử giao dịch": "/adminPages/admin_lichsugiaodich.html",
     //   "Phản hồi": "/adminPages/admin_phanhoi.html"
     };
