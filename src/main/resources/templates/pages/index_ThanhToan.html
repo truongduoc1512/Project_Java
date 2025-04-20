@@ -178,7 +178,7 @@
             <div class="payment-box text-center">
               <h4 class="text-success fw-bold mb-3"><i class="fas fa-qrcode me-2"></i>Quét mã QR</h4>
               <p>Vui lòng dùng app ngân hàng hoặc ví điện tử để quét mã dưới đây.</p>
-              <img src="Image/6dfbcd0ec8257b7b2234.jpg" alt="QR Code" class="qr-image" />
+              <img src="../assets/img/6dfbcd0ec8257b7b2234.jpg" alt="QR Code" class="qr-image" />
               <p class="mt-3">Đảm bảo nhập đúng số tiền và nội dung chuyển khoản.</p>
               <button class="btn btn-success btn-confirm" onclick="confirmQrPayment()">Tôi đã thanh toán</button>
             </div>
@@ -190,12 +190,14 @@
       alert(
         "Cảm ơn bạn đã xác nhận thanh toán bằng tiền mặt!\nChúng tôi sẽ tiến hành xử lý đơn hàng của bạn."
       );
+      window.location.href = "http://localhost:8080/indexLogin#";
     }
 
     function confirmQrPayment() {
       alert(
         "Thanh toán QR đã thành công!\nChúng tôi sẽ xác nhận giao dịch và gửi thông báo cho bạn."
       );
+      window.location.href = "http://localhost:8080/indexLogin#";
     }
 
     window.onload = function () {
