@@ -63,7 +63,6 @@ public class AppointmentController {
             .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // ✅ Tìm kiếm bằng số điện thoại
     @GetMapping("/search")
     public ResponseEntity<?> getAppointmentsByPhone(@RequestParam("phone") String phone) {
         List<Appointment> appointments = appointmentRepository.findBySoDienThoai(phone);

@@ -21,6 +21,12 @@ function loadPage(page) {
         });
       }
 
+      if (page === "/pages/user_progress") {
+        loadScript("../assets/js/progress.js", () => {
+          window.initProgressPage?.();
+        });
+      }
+
       if (typeof window.renderUserProgress === 'function') {
         renderUserProgress();
       }
