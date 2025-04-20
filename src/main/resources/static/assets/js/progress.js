@@ -27,6 +27,7 @@ function initProgressPage() {
             if (appointments.length > 0) {
               const appointment = appointments[0];
               document.getElementById("username").textContent = appointment.hoTenNguoiTiem || "";
+              localStorage.setItem("currentUserName", appointment.hoTenNguoiTiem);
             } else {
               console.log("Không tìm thấy cuộc hẹn.");
             }

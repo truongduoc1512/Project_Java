@@ -22,10 +22,11 @@ function renderAdmin() {
 
   mockData.forEach(item => {
     const daTiem = localStorage.getItem("tiem_" + item.id) === "true";
-
+    const savedName = localStorage.getItem("currentUserName") || "Nguyễn Văn A";
+    const displayName = item.userName === "Nguyễn Văn A" ? savedName : item.userName;
     const row = document.createElement("tr");
     row.innerHTML = `
-      <td>${item.userName}</td>
+      <td>${displayName}</td>
       <td>${item.tenMui}</td>
       <td>${item.ngay}</td>
       <td>
