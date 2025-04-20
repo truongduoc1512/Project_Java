@@ -1,10 +1,10 @@
-function loadLichTiemTable() {
-    fetch("http://localhost:8080/api/appointments")
+function loadTaiKhoanTable() {
+    fetch("http://localhost:8080/api/users")
       .then(res => res.json())
-      .then(data => {
-        console.log("Dữ liệu lịch tiêm:", data);
+      .then(dataAccount => {
+        console.log("Dữ liệu lịch tiêm:", dataAccount);
   
-        const tbody = document.getElementById("lichTiemBody");
+        const tbody = document.getElementById("taiKhoanBody");
         if (!tbody) {
           console.error("Không tìm thấy tbody");
           return;
@@ -12,22 +12,14 @@ function loadLichTiemTable() {
   
         tbody.innerHTML = "";
   
-        data.forEach(item => {
+        dataAccount.forEach(item => {
           const row = `
             <tr>
               <td>${item.id}</td>
-              <td>${item.hoTenNguoiTiem}</td>
-              <td>${item.ngaySinh}</td>
-              <td>${item.gioiTinh}</td>
-              <td>${item.diaChi}</td>
-              <td>${item.hoTenNguoiLienHe}</td>
-              <td>${item.moiQuanHe}</td>
-              <td>${item.soDienThoai}</td>
-              <td>${item.loaiVaccine}</td>
-              <td>${item.ngayTiem}</td>
+              <td>${item.fullName}</td>
+              <td>${item.email}</td>
+              <td>${item.phone}</td>
               <td>
-                <button onclick="suaLichTiem(${item.id})">Sửa</button>
-                /
                 <button onclick="xoaLichTiem(${item.id})">Xóa</button>
               </td>
             </tr>
@@ -41,7 +33,7 @@ function loadLichTiemTable() {
   }
   function xoaLichTiem(id) {
     if (confirm("Bạn có chắc muốn xóa lịch tiêm này không?")) {
-      fetch(`http://localhost:8080/api/appointments/${id}`, {
+      fetch(`http://localhost:8080/api/users/${id}`, {
         method: "DELETE"
       })
       .then(res => {
@@ -58,9 +50,5 @@ function loadLichTiemTable() {
     }
   }
 
-  function suaLichTiem(id) {
-    window.location.href = `adminPages/admin_sualichtiem?id=${id}`;
-  }
 
-  loadLichTiemTable();
-  setInterval(loadLichTiemTable, 100000);
+  loadTaiKhoanTable();

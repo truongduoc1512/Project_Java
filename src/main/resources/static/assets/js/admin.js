@@ -13,6 +13,12 @@ function loadAdminPage(page) {
           console.log("🟢 Gọi loadLichTiemTable()");
           loadLichTiemTable();
         }
+
+        if (page.includes("admin_taikhoan") && typeof loadTaiKhoanTable === "function") {
+          console.log("🟢 Gọi loadTaiKhoanTable()");
+          loadTaiKhoanTable();
+        }
+
         if (page.includes("admin_support") && typeof loadSupportRequests === "function") {
           loadSupportRequests(); // nếu bạn gọi sau khi load HTML
         }
@@ -40,7 +46,7 @@ function loadAdminPage(page) {
   
     const adminPages = {
       "Tất cả lịch đăng ký": "/adminPages/admin_lichtiem",
-    //   "Chăm sóc khách hàng": "/adminPages/admin_support.html",
+      "Danh sách tài khoản": "/adminPages/admin_taikhoan",
     //   "Thông tin khách hàng": "/adminPages/admin_khachhang.html",
     //   "Cập nhật hồ sơ trẻ em": "/adminPages/admin_capnhat_hoso.html",
        "Cập nhật quá trình tiêm chủng": "/adminPages/admin_progress",

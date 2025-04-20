@@ -22,6 +22,11 @@ public class AdminController {
     public String adminLichTiemPage(){
         return "adminPages/admin_lichtiem";
     }
+
+    @GetMapping("/adminPages/admin_taikhoan")
+    public String adminTaiKhoanPage(){
+        return "adminPages/admin_taikhoan";
+    }
     @GetMapping("/adminPages/admin_support")
     public String adminSupportPage(){
         return "adminPages/admin_support";
