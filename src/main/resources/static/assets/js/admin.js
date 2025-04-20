@@ -16,6 +16,14 @@ function loadAdminPage(page) {
         if (page.includes("admin_support") && typeof loadSupportRequests === "function") {
           loadSupportRequests(); // nếu bạn gọi sau khi load HTML
         }
+        if (page.includes("admin_progress") && typeof window.renderAdmin === "function") {
+          console.log("🟢 Gọi renderAdmin()");
+          window.renderAdmin();
+        }
+        setTimeout(() => {
+          initFeedbackEvents();
+          renderFeedbackList();
+        }, 0);
       })
       .catch((error) => console.error("[ADMIN] Fetch error:", error));
   }
@@ -31,9 +39,10 @@ function loadAdminPage(page) {
     //   "Chăm sóc khách hàng": "/adminPages/admin_support.html",
     //   "Thông tin khách hàng": "/adminPages/admin_khachhang.html",
     //   "Cập nhật hồ sơ trẻ em": "/adminPages/admin_capnhat_hoso.html",
-    //   "Cập nhật quá trình tiêm chủng": "/adminPages/admin_capnhat_tiemchung.html",
+       "Cập nhật quá trình tiêm chủng": "/adminPages/admin_progress",
     //   "Thông báo": "/adminPages/admin_thongbao.html",
       "Support": "/adminPages/admin_support",
+      "Feedback": "/adminPages/admin_feedback",
     //   "Lịch sử giao dịch": "/adminPages/admin_lichsugiaodich.html",
     //   "Phản hồi": "/adminPages/admin_phanhoi.html"
     };

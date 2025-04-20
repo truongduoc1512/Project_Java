@@ -26,4 +26,13 @@ public class AdminController {
     public String adminSupportPage(){
         return "adminPages/admin_support";
     }
+
+    @GetMapping("/adminPages/admin_progress")
+    public String adminProgessPage(){
+        return "adminPages/admin_progress";
+    }
+    @GetMapping("/adminPages/admin_feedback")
+    public String adminFeedbackPage(){
+        return "adminPages/admin_feedback";
+    }
 }

@@ -101,4 +101,14 @@ public class IndexController {
     public String QTTCUserPage(){
         return "pages/Index_QTTCUser";
     }
+
+    @GetMapping("/pages/user_progress")
+    public String userProgessPage(){
+        return "pages/user_progress";
+    }
+
+    @GetMapping("/pages/feedback")
+    public String feedbackPage(){
+        return "pages/feedback";
+    }
 }

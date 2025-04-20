@@ -20,6 +20,14 @@ function loadPage(page) {
           window.initDatLichPage?.();
         });
       }
+
+      if (typeof window.renderUserProgress === 'function') {
+        renderUserProgress();
+      }
+      setTimeout(() => {
+        initFeedbackEvents();
+        renderFeedbackList();
+      }, 0);
     })
     .catch((error) => console.error("Fetch error:", error));
 }
@@ -56,10 +64,11 @@ document.addEventListener("DOMContentLoaded", function () {
     "Thông tin khách hàng": "/pages/Index_ThongTinKhachHang",
 
     "Cập nhật hồ sơ trẻ em": "/pages/index_CapNhatHS",
-    "Cập nhật quá trình tiêm chủng": "/pages/Index_QTTCUser",
+    "Cập nhật quá trình tiêm chủng": "/pages/user_progress",
     // "Thông báo":
     //   "<h1>Thông báo</h1><p>Các thông báo mới nhất về tiêm vaccine.</p>",
     "Lịch sử giao dịch": "/pages/index_HistoryPay",
+    "Feedback": "/pages/feedback",
     // "Phản hồi":
     //   "<h1>Phản hồi</h1><p>Đóng góp ý kiến và phản hồi về hệ thống.</p>",
   };
