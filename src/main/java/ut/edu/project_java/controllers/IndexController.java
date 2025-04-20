@@ -111,4 +111,9 @@ public class IndexController {
     public String feedbackPage(){
         return "pages/feedback";
     }
+
+    @GetMapping("/pages/user_phanUng")
+    public String userPhanUngPage(){
+        return "pages/user_phanUng";
+    }
 }

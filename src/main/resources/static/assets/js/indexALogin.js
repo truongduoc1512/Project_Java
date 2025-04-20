@@ -28,6 +28,10 @@ function loadPage(page) {
         initFeedbackEvents();
         renderFeedbackList();
       }, 0);
+      setTimeout(() => {
+        initReactionEvents();
+        renderReactionList(); 
+      }, 0);
     })
     .catch((error) => console.error("Fetch error:", error));
 }
@@ -65,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     "Cập nhật hồ sơ trẻ em": "/pages/index_CapNhatHS",
     "Cập nhật quá trình tiêm chủng": "/pages/user_progress",
-    // "Thông báo":
+    "Phản ứng sau tiêm": "/pages/user_phanUng",
     //   "<h1>Thông báo</h1><p>Các thông báo mới nhất về tiêm vaccine.</p>",
     "Lịch sử giao dịch": "/pages/index_HistoryPay",
     "Feedback": "/pages/feedback",

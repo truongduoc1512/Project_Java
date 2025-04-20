@@ -78,3 +78,9 @@ document.addEventListener("DOMContentLoaded", function () {
   initFeedbackEvents();     // nếu có form đánh giá
   renderFeedbackList();     // nếu có nơi hiển thị feedback
 });
+window.addEventListener("storage", function (e) {
+  if (e.key === "feedbacks") {
+    console.log("📦 Dữ liệu phản ứng vừa được cập nhật!");
+    renderFeedbackList(); // gọi lại hàm hiển thị
+  }
+});

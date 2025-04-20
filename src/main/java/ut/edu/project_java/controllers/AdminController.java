@@ -35,4 +35,9 @@ public class AdminController {
     public String adminFeedbackPage(){
         return "adminPages/admin_feedback";
     }
+    @GetMapping("/adminPages/admin_phanUng")
+    public String adminPhanUngPage(){
+        return "adminPages/admin_phanUng";
+    }
+
 }

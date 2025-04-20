@@ -24,6 +24,10 @@ function loadAdminPage(page) {
           initFeedbackEvents();
           renderFeedbackList();
         }, 0);
+        setTimeout(() => {
+          initReactionEvents();
+          renderReactionList(); 
+        }, 0);
       })
       .catch((error) => console.error("[ADMIN] Fetch error:", error));
   }
@@ -40,7 +44,7 @@ function loadAdminPage(page) {
     //   "Thông tin khách hàng": "/adminPages/admin_khachhang.html",
     //   "Cập nhật hồ sơ trẻ em": "/adminPages/admin_capnhat_hoso.html",
        "Cập nhật quá trình tiêm chủng": "/adminPages/admin_progress",
-    //   "Thông báo": "/adminPages/admin_thongbao.html",
+       "Phản ứng sau tiêm": "/adminPages/admin_phanUng",
       "Support": "/adminPages/admin_support",
       "Feedback": "/adminPages/admin_feedback",
     //   "Lịch sử giao dịch": "/adminPages/admin_lichsugiaodich.html",
